@@ -1,0 +1,64 @@
+ <!DOCTYPE html>
+<html>                                          
+  <head>                                          
+    <meta charset="UTF-8">                                          
+    <title>Leyendo múltiples archivos de texto en JavaScript</title>
+    <style type="text/css">                                          
+table {                                          
+    width: 100%;                                                                                              
+    border: 1px solid #000;                                                                                              
+ }
+ th, td {                                                                                              
+    text-align: left;                                                                                              
+    vertical-align: top;                                                                                              
+    border: 1px solid #000;                                                                                              
+    border-collapse: collapse;                                                                                              
+    padding: 0.3em;                                                                                              
+    caption-side: bottom;                                                                                              
+ }
+ caption {                                                                                              
+    padding: 0.3em;                                                                                              
+    color: #fff;                                                                                              
+     background: #000;                                                                                              
+ }
+ th {                                                                                              
+    background: #eee;                                                                                              
+ }
+
+    </style>                                                                                              
+  </head>                                                                                              
+  <body>                                                                                              
+    <h1>Contenido de los archivos de texto</h1>
+    <ul id="archivos">                                                                                              
+      <li><a href="#" onclick="leerArchivo('Punk.txt'); return false;">Tribu Punk (Vida, AP y Pensiones)</a></li>
+      <li><a href="#" onclick="leerArchivo('Merengue.txt'); return false;">Tribu Merengue (Lìneas personales)</a></li>
+      <li><a href="#" onclick="leerArchivo('Rock.txt'); return false;">Tribu Rock (Vehicular)</a></li>
+      <li><a href="#" onclick="leerArchivo('Salsa.txt'); return false;">Tribu Salsa (Corredores y Empresa)</a></li>
+      <li><a href="#" onclick="leerArchivo('Cumbia.txt'); return false;">Tribu Cumbia (Venta Digital)</a></li>
+      <li><a href="#" onclick="leerArchivo('Chicha.txt'); return false;">Tribu Chicha (Canales de Atenciòn)</a></li>
+      <li><a href="#" onclick="leerArchivo('Disco.txt'); return false;">Tribu Disco (Clientes y Segmentos)</a></li>
+      <li><a href="#" onclick="leerArchivo('Reggae.txt'); return false;">Tribu Reggae (Habilitadora a TI)</a></li>
+      <li><a href="#" onclick="leerArchivo('Electronica.txt'); return false;">Tribu Electrònica (Data)</a></li>
+      <li><a href="#" onclick="leerArchivo('Clasica.txt'); return false;">Tribu Clàsica - Moderna (Operaciones)</a></li>
+      <li><a href="#" onclick="leerArchivo('Criolla.txt'); return false;">Tribu Criolla (Areas de Apoyo)</a></li>
+    </ul>                                                                                                      
+    <ul>                                                                                                      
+    <div id="sub-menu"></div>                                                                                                      
+    </ul>                                                                                                      
+    <script>                                                                                                      
+      function leerArchivo(archivo) {                                                                                                      
+        // Cargamos el archivo de texto utilizando AJAX
+        var xhr = new XMLHttpRequest();                                                                                                      
+        xhr.open('GET', archivo, true);                                                                                                      
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            // Si se ha cargado correctamente el archivo de texto
+            document.getElementById('sub-menu').innerHTML = xhr.responseText;
+          }
+        };                                                                                                      
+        xhr.send();                                                                                                      
+      }
+    </script>                                                                                                      
+  </body>                                                                                                      
+</html>                                                                                                          
+                                                                 
